@@ -44,14 +44,26 @@ function displayDuration() {
     if (anniversaryInput) {
         const currentDate = new Date();
         const duration = calculateDuration(anniversaryInput, currentDate);
-        if(duration.days <= 1){
+
+        if(duration.days < 2){
             document.querySelector("#textDays").innerHTML = "Day";
         }
-        if(duration.months <= 1){
+        else{
+            document.querySelector("#textDays").innerHTML = "Days";
+        }
+
+        if(duration.months < 2){
             document.querySelector("#textMonths").innerHTML = "Month";
         }
-        if(duration.years <= 1){
+        else{
+            document.querySelector("#textMonths").innerHTML = "Months";
+        }
+
+        if(duration.years < 2){
             document.querySelector("#textYears").innerHTML = "Year";
+        }
+        else{
+            document.querySelector("#textYears").innerHTML = "Years";
         }
         box_days.innerText = duration.days;
         box_months.innerText = duration.months;
